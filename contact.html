@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact DZA DANZEE APPAREL for premium garment manufacturing solutions. Get quotes, samples, and consultation for your fashion needs.">
-    <title>Contact - DZA DANZEE APPAREL</title>
+    <meta name="description" content="Contact DZA DANZEE APPAREL for premium garment manufacturing solutions, quotes, and partnerships">
+    <title>Contact - DZA DANZEE APPAREL | Get Quote & Partnership</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,18 +15,17 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <div class="logo-icon">DZA</div>
-                    <div class="logo-text">
-                        <h2>DZA DANZEE</h2>
-                        <p>APPAREL</p>
+                    <div class="logo-img">
+                        <span class="logo-text">DZA</span>
                     </div>
+                    <h2>DZA DANZEE<br><span>APPAREL</span></h2>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html" class="active nav-cta">Get Quote</a></li>
                 </ul>
                 <div class="hamburger">
                     <span></span>
@@ -41,7 +40,7 @@
     <section class="page-hero">
         <div class="container">
             <h1>Contact Us</h1>
-            <p>Get in touch for premium garment manufacturing solutions</p>
+            <p>Get in touch for premium garment manufacturing solutions and partnerships</p>
         </div>
     </section>
 
@@ -51,7 +50,7 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <h2>Get In Touch</h2>
-                    <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible with tailored solutions for your garment manufacturing needs.</p>
+                    <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible with comprehensive solutions for your garment manufacturing needs.</p>
                     
                     <div class="contact-methods">
                         <div class="contact-method">
@@ -60,7 +59,7 @@
                             </div>
                             <div class="method-info">
                                 <h3>Our Location</h3>
-                                <p>123 Fashion Street<br>Apparel City, Lahore<br>Pakistan</p>
+                                <p>123 Fashion Street, Apparel City<br>Lahore, Punjab 54000<br>Pakistan</p>
                             </div>
                         </div>
                         
@@ -70,7 +69,7 @@
                             </div>
                             <div class="method-info">
                                 <h3>Phone Number</h3>
-                                <p>+92 42 1234567<br>+92 300 1234567</p>
+                                <p>+92 300 1234567 (Mobile)<br>+92 42 12345678 (Office)</p>
                             </div>
                         </div>
                         
@@ -80,7 +79,7 @@
                             </div>
                             <div class="method-info">
                                 <h3>Email Address</h3>
-                                <p>info@dzadanzee.com<br>sales@dzadanzee.com</p>
+                                <p>info@dzadanzee.com<br>sales@dzadanzee.com<br>production@dzadanzee.com</p>
                             </div>
                         </div>
                         
@@ -90,65 +89,117 @@
                             </div>
                             <div class="method-info">
                                 <h3>Working Hours</h3>
-                                <p>Monday - Friday: 9:00 - 18:00<br>Saturday: 9:00 - 14:00</p>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 2:00 PM<br>Sunday: Closed</p>
                             </div>
                         </div>
                     </div>
                     
                     <div class="social-links-large">
-                        <h3>Follow Us</h3>
+                        <h3>Follow Our Journey</h3>
+                        <p>Stay updated with our latest collections and manufacturing innovations</p>
                         <div class="social-icons">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-form">
                     <h2>Send Message</h2>
-                    <form class="message-form">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
+                    <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                    <form class="message-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+92 300 1234567">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company" placeholder="Your company name">
+                            </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="country">Country *</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select your country</option>
+                                <option value="pakistan">Pakistan</option>
+                                <option value="usa">United States</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="uae">United Arab Emirates</option>
+                                <option value="canada">Canada</option>
+                                <option value="germany">Germany</option>
+                                <option value="france">France</option>
+                                <option value="australia">Australia</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company Name</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject *</label>
+                            <label for="subject">Inquiry Type *</label>
                             <select id="subject" name="subject" required>
-                                <option value="">Select a subject</option>
+                                <option value="">Select inquiry type</option>
                                 <option value="general">General Inquiry</option>
                                 <option value="quote">Request Quote</option>
                                 <option value="product">Product Information</option>
-                                <option value="sample">Request Samples</option>
+                                <option value="sample">Sample Request</option>
                                 <option value="partnership">Partnership</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Tell us about your project requirements, quantity, timeline, and any specific details..." required></textarea>
+                            <label for="product-interest">Product Interest</label>
+                            <select id="product-interest" name="product_interest">
+                                <option value="">Select product category</option>
+                                <option value="denim">Denim Collection</option>
+                                <option value="casual">Casual Wear</option>
+                                <option value="formal">Formal Wear</option>
+                                <option value="custom">Custom Manufacturing</option>
+                                <option value="multiple">Multiple Categories</option>
+                            </select>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                        <div class="form-group">
+                            <label for="quantity">Estimated Quantity</label>
+                            <select id="quantity" name="quantity">
+                                <option value="">Select quantity range</option>
+                                <option value="100-500">100 - 500 pieces</option>
+                                <option value="500-1000">500 - 1,000 pieces</option>
+                                <option value="1000-5000">1,000 - 5,000 pieces</option>
+                                <option value="5000-10000">5,000 - 10,000 pieces</option>
+                                <option value="10000+">10,000+ pieces</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="6" required placeholder="Please describe your requirements, including product details, quantities, timelines, and any specific needs..."></textarea>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary btn-full">
+                                <i class="fas fa-paper-plane"></i>
+                                Send Message
+                            </button>
+                            <p class="form-note">We respect your privacy and will never share your information with third parties.</p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -158,13 +209,30 @@
     <!-- Map Section -->
     <section class="map-section">
         <div class="container">
-            <h2>Our Location</h2>
+            <div class="section-header">
+                <h2>Our Location</h2>
+                <p>Visit our manufacturing facility or get in touch with our team</p>
+            </div>
             <div class="map-placeholder">
                 <div class="map-content">
                     <i class="fas fa-map-marked-alt"></i>
-                    <h3>Lahore, Pakistan</h3>
-                    <p>123 Fashion Street, Apparel City, Lahore</p>
-                    <button class="btn btn-secondary">View Larger Map</button>
+                    <h3>Manufacturing Facility</h3>
+                    <p>123 Fashion Street, Apparel City, Lahore, Pakistan</p>
+                    <div class="map-features">
+                        <div class="map-feature">
+                            <i class="fas fa-industry"></i>
+                            <span>15,000 sq. ft. Facility</span>
+                        </div>
+                        <div class="map-feature">
+                            <i class="fas fa-users"></i>
+                            <span>150+ Employees</span>
+                        </div>
+                        <div class="map-feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Easy Access to Port</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary">Get Directions</button>
                 </div>
             </div>
         </div>
@@ -175,32 +243,52 @@
         <div class="container">
             <div class="section-header">
                 <h2>Frequently Asked Questions</h2>
-                <p>Quick answers to common questions</p>
+                <p>Quick answers to common questions about our manufacturing process</p>
             </div>
             <div class="faq-grid">
                 <div class="faq-item">
                     <h3>What is your minimum order quantity?</h3>
-                    <p>Our MOQ varies depending on the product type and complexity. Generally, we require a minimum of 500 pieces per design, but we can accommodate smaller orders for established clients or sample development.</p>
+                    <p>Our MOQ varies depending on the product type and complexity. Generally, we require a minimum of 500 pieces per design for standard products, but we can accommodate smaller orders for established clients or unique projects. Contact us to discuss your specific requirements.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Do you offer custom design services?</h3>
-                    <p>Yes, we have a dedicated design team that can help bring your ideas to life. We offer complete custom design services from concept to final product, including pattern making and sample development.</p>
+                    <p>Yes, we have a dedicated design team that can help bring your ideas to life. We offer complete custom design services from concept development, technical drawings, pattern making, sample development, to final production. Our designers work closely with you to ensure your vision is perfectly executed.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>What is your production timeline?</h3>
-                    <p>Production timelines depend on order quantity and complexity. Typically, samples take 7-10 days, and bulk production takes 4-6 weeks after sample approval. We provide detailed timelines for each project.</p>
+                    <h3>What is your typical production timeline?</h3>
+                    <p>Production timelines depend on order quantity and complexity. Typically, samples take 7-10 days for development, and bulk production takes 4-6 weeks after sample approval. We provide detailed production schedules for each project and maintain regular communication throughout the process.</p>
                 </div>
                 <div class="faq-item">
                     <h3>Do you ship internationally?</h3>
-                    <p>Yes, we have extensive experience shipping to clients in Europe, North America, Middle East, and Asia. We handle all export documentation, customs clearance, and logistics for seamless international delivery.</p>
+                    <p>Yes, we have extensive experience shipping to clients in Europe, North America, Middle East, and Asia. We handle all export documentation, customs clearance, and logistics. Our shipping partners ensure reliable and timely delivery to your specified location.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>What quality certifications do you have?</h3>
-                    <p>We are certified with ISO 9001:2015 for quality management, OEKO-TEX Standard 100 for textile safety, BSCI for social compliance, and GOTS for organic textiles.</p>
+                    <h3>What quality control measures do you have?</h3>
+                    <p>We implement rigorous quality control at every stage: fabric inspection, in-process quality checks during cutting and sewing, and final inspection before shipping. We're ISO 9001 certified and follow international quality standards to ensure every product meets your expectations.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>Can you work with our existing designs?</h3>
-                    <p>Absolutely! We can work with your existing designs, patterns, and specifications. Our technical team will review your requirements and provide manufacturing solutions that meet your quality standards.</p>
+                    <h3>Can you work with our designs and specifications?</h3>
+                    <p>Absolutely! We specialize in working with client designs and specifications. You can provide tech packs, samples, or even just design concepts. Our team will work with you to ensure accurate translation of your designs into high-quality manufactured products.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Manufacturing Project?</h2>
+                <p>Contact us today for competitive pricing, samples, and professional garment manufacturing solutions</p>
+                <div class="cta-buttons">
+                    <a href="tel:+923001234567" class="btn btn-primary btn-large">
+                        <i class="fas fa-phone"></i>
+                        Call Now
+                    </a>
+                    <a href="mailto:info@dzadanzee.com" class="btn btn-outline btn-large">
+                        <i class="fas fa-envelope"></i>
+                        Email Us
+                    </a>
                 </div>
             </div>
         </div>
@@ -212,18 +300,17 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <div class="logo-icon">DZA</div>
-                        <div class="logo-text">
-                            <h3>DZA DANZEE</h3>
-                            <p>APPAREL</p>
+                        <div class="logo-img">
+                            <span class="logo-text">DZA</span>
                         </div>
+                        <h3>DZA DANZEE APPAREL</h3>
                     </div>
-                    <p>Premium garment manufacturers delivering excellence with Pakistan's finest craftsmanship since 1999.</p>
+                    <p>Premium garment manufacturers delivering excellence since 2009. International quality standards with global reach.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -232,28 +319,31 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Apparel City, Lahore, Pakistan</p>
-                    <p><i class="fas fa-phone"></i> +92 42 1234567</p>
-                    <p><i class="fas fa-mobile-alt"></i> +92 300 1234567</p>
-                    <p><i class="fas fa-envelope"></i> info@dzadanzee.com</p>
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Denim Collection</a></li>
+                        <li><a href="products.html">Casual Wear</a></li>
+                        <li><a href="products.html">Formal Wear</a></li>
+                        <li><a href="products.html">Custom Orders</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Certifications</h4>
-                    <div class="certifications">
-                        <div class="cert-badge">ISO 9001</div>
-                        <div class="cert-badge">OEKO-TEX</div>
-                        <div class="cert-badge">BSCI</div>
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Apparel City</p>
+                        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                        <p><i class="fas fa-envelope"></i> info@dzadanzee.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00-18:00</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 DZA DANZEE APPAREL. All rights reserved. | Proudly Made in Pakistan</p>
+                <p>&copy; 2024 DZA DANZEE APPAREL. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
             </div>
         </div>
     </footer>
