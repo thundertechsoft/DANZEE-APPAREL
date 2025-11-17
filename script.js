@@ -13,6 +13,61 @@ document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click'
     navMenu.classList.remove('active');
 }));
 
+// Hero Slideshow
+const slides = document.querySelectorAll('.slide');
+const indicators = document.querySelectorAll('.indicator');
+let currentSlide = 0;
+const slideInterval = 5000; // 5 seconds
+
+function showSlide(index) {
+    // Remove active class from all slides and indicators
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Add active class to current slide and indicator
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    
+    // Reset animation for slide content
+    const slideContent = slides[index].querySelector('.slide-content');
+    slideContent.style.opacity = '0';
+    slideContent.style.transform = 'translateY(50px)';
+    
+    setTimeout(() => {
+        slideContent.style.opacity = '1';
+        slideContent.style.transform = 'translateY(0)';
+    }, 100);
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Initialize slideshow
+showSlide(currentSlide);
+let slideTimer = setInterval(nextSlide, slideInterval);
+
+// Pause slideshow on hover
+const slideshowContainer = document.querySelector('.slideshow-container');
+slideshowContainer.addEventListener('mouseenter', () => {
+    clearInterval(slideTimer);
+});
+
+slideshowContainer.addEventListener('mouseleave', () => {
+    slideTimer = setInterval(nextSlide, slideInterval);
+});
+
+// Click on indicators to change slide
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+        clearInterval(slideTimer);
+        slideTimer = setInterval(nextSlide, slideInterval);
+    });
+});
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -64,7 +119,7 @@ document.querySelectorAll('.btn').forEach(button => {
     });
 });
 
-// Add scroll animation to elements
+// Scroll animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -73,20 +128,17 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('animated');
         }
     });
 }, observerOptions);
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.feature-card, .product-card, .service-card, .team-card, .process-step');
+    const animatedElements = document.querySelectorAll('.feature-card, .product-card, .team-card, .process-step, .mv-card, .quality-item, .project-card, .testimonial-card, .cert-item, .faq-item');
     
     animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.classList.add('animate-on-scroll');
         observer.observe(el);
     });
 });
@@ -118,12 +170,12 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 // Observe counter elements
-document.querySelectorAll('.counter').forEach(counter => {
+document.querySelectorAll('.stat-item h3').forEach(counter => {
     counterObserver.observe(counter);
 });
 
 // Add hover effects to cards
-document.querySelectorAll('.feature-card, .product-card, .service-card').forEach(card => {
+document.querySelectorAll('.feature-card, .product-card, .service-card, .project-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px)';
     });
@@ -133,22 +185,50 @@ document.querySelectorAll('.feature-card, .product-card, .service-card').forEach
     });
 });
 
-// Newsletter subscription
-const newsletterForm = document.querySelector('.newsletter-form');
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const email = this.querySelector('input[type="email"]').value;
+// Sticky header on scroll
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.backdropFilter = 'blur(10px)';
+    } else {
+        header.style.background = 'var(--white)';
+        header.style.backdropFilter = 'none';
+    }
+});
+
+// Lazy loading for images
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'));
+    
+    if ('IntersectionObserver' in window) {
+        const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const lazyImage = entry.target;
+                    lazyImage.src = lazyImage.dataset.src;
+                    lazyImage.classList.remove('lazy');
+                    lazyImageObserver.unobserve(lazyImage);
+                }
+            });
+        });
         
-        // Simulate subscription
-        this.innerHTML = '<div class="success-message"><i class="fas fa-check-circle"></i> Thank you for subscribing!</div>';
-        
-        setTimeout(() => {
-            this.reset();
-            this.innerHTML = `
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Subscribe</button>
-            `;
-        }, 3000);
-    });
-}
+        lazyImages.forEach(function(lazyImage) {
+            lazyImageObserver.observe(lazyImage);
+        });
+    }
+});
+
+// Add current year to footer
+document.addEventListener('DOMContentLoaded', function() {
+    const yearElement = document.querySelector('.footer-bottom p');
+    if (yearElement) {
+        const currentYear = new Date().getFullYear();
+        yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
+    }
+});
+
+// Initialize when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add any additional initialization code here
+});
