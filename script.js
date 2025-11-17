@@ -1,3 +1,14 @@
+// Preloader
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    }, 1500);
+});
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -13,60 +24,168 @@ document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click'
     navMenu.classList.remove('active');
 }));
 
-// Hero Slideshow
-const slides = document.querySelectorAll('.slide');
-const indicators = document.querySelectorAll('.indicator');
-let currentSlide = 0;
-const slideInterval = 5000; // 5 seconds
+// Header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
 
-function showSlide(index) {
-    // Remove active class from all slides and indicators
-    slides.forEach(slide => slide.classList.remove('active'));
-    indicators.forEach(indicator => indicator.classList.remove('active'));
+// Banner Slider Functionality
+class BannerSlider {
+    constructor() {
+        this.slides = document.querySelectorAll('.slide');
+        this.dots = document.querySelectorAll('.dot');
+        this.prevBtn = document.querySelector('.slider-prev');
+        this.nextBtn = document.querySelector('.slider-next');
+        this.currentSlide = 0;
+        this.slideInterval = null;
+        
+        this.init();
+    }
     
-    // Add active class to current slide and indicator
-    slides[index].classList.add('active');
-    indicators[index].classList.add('active');
+    init() {
+        this.startAutoSlide();
+        this.addEventListeners();
+    }
     
-    // Reset animation for slide content
-    const slideContent = slides[index].querySelector('.slide-content');
-    slideContent.style.opacity = '0';
-    slideContent.style.transform = 'translateY(50px)';
+    startAutoSlide() {
+        this.slideInterval = setInterval(() => {
+            this.nextSlide();
+        }, 5000);
+    }
     
-    setTimeout(() => {
-        slideContent.style.opacity = '1';
-        slideContent.style.transform = 'translateY(0)';
-    }, 100);
+    addEventListeners() {
+        this.prevBtn.addEventListener('click', () => {
+            this.prevSlide();
+            this.resetAutoSlide();
+        });
+        
+        this.nextBtn.addEventListener('click', () => {
+            this.nextSlide();
+            this.resetAutoSlide();
+        });
+        
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                this.goToSlide(index);
+                this.resetAutoSlide();
+            });
+        });
+        
+        // Pause auto-slide on hover
+        const slider = document.querySelector('.banner-slider');
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(this.slideInterval);
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            this.startAutoSlide();
+        });
+    }
+    
+    nextSlide() {
+        this.goToSlide((this.currentSlide + 1) % this.slides.length);
+    }
+    
+    prevSlide() {
+        this.goToSlide((this.currentSlide - 1 + this.slides.length) % this.slides.length);
+    }
+    
+    goToSlide(index) {
+        this.slides[this.currentSlide].classList.remove('active');
+        this.dots[this.currentSlide].classList.remove('active');
+        
+        this.currentSlide = index;
+        
+        this.slides[this.currentSlide].classList.add('active');
+        this.dots[this.currentSlide].classList.add('active');
+    }
+    
+    resetAutoSlide() {
+        clearInterval(this.slideInterval);
+        this.startAutoSlide();
+    }
 }
 
-function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
+// Initialize slider when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    new BannerSlider();
+});
+
+// Counter Animation
+class CounterAnimation {
+    constructor() {
+        this.counters = document.querySelectorAll('.counter');
+        this.observer = new IntersectionObserver(this.handleIntersection.bind(this), {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        this.counters.forEach(counter => {
+            this.observer.observe(counter);
+        });
+    }
+    
+    handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                this.animateCounter(entry.target);
+                this.observer.unobserve(entry.target);
+            }
+        });
+    }
+    
+    animateCounter(counter) {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                counter.textContent = target + (target >= 1000 ? '+' : '');
+                clearInterval(timer);
+            } else {
+                counter.textContent = Math.floor(current) + (target >= 1000 ? '+' : '');
+            }
+        }, 16);
+    }
 }
 
-// Initialize slideshow
-showSlide(currentSlide);
-let slideTimer = setInterval(nextSlide, slideInterval);
+// Initialize counters
+new CounterAnimation();
 
-// Pause slideshow on hover
-const slideshowContainer = document.querySelector('.slideshow-container');
-slideshowContainer.addEventListener('mouseenter', () => {
-    clearInterval(slideTimer);
-});
+// Scroll Animations
+class ScrollAnimations {
+    constructor() {
+        this.animatedElements = document.querySelectorAll('.animated-card');
+        this.observer = new IntersectionObserver(this.handleIntersection.bind(this), {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        this.animatedElements.forEach(el => {
+            this.observer.observe(el);
+        });
+    }
+    
+    handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }
+}
 
-slideshowContainer.addEventListener('mouseleave', () => {
-    slideTimer = setInterval(nextSlide, slideInterval);
-});
-
-// Click on indicators to change slide
-indicators.forEach((indicator, index) => {
-    indicator.addEventListener('click', () => {
-        currentSlide = index;
-        showSlide(currentSlide);
-        clearInterval(slideTimer);
-        slideTimer = setInterval(nextSlide, slideInterval);
-    });
-});
+// Initialize scroll animations
+new ScrollAnimations();
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -82,24 +201,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Form submission handling
+// Enhanced Form Handling
 document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form data
-        const formData = new FormData(this);
-        const formObject = {};
-        formData.forEach((value, key) => {
-            formObject[key] = value;
-        });
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
         
-        // Here you would typically send the data to a server
-        console.log('Form submitted:', formObject);
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+        submitBtn.disabled = true;
         
-        // Show success message
-        alert('Thank you for your message! We will get back to you soon.');
-        this.reset();
+        // Simulate form submission
+        setTimeout(() => {
+            // Show success message
+            this.innerHTML = `
+                <div class="form-success">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank You!</h3>
+                    <p>Your message has been sent successfully. We'll get back to you soon.</p>
+                </div>
+            `;
+        }, 2000);
     });
 });
 
@@ -114,121 +238,134 @@ document.querySelectorAll('.btn').forEach(button => {
             setTimeout(() => {
                 this.innerHTML = originalText;
                 this.disabled = false;
-            }, 2000);
+            }, 3000);
         }
     });
 });
 
-// Scroll animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Parallax Effect for Banner
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const banner = document.querySelector('.banner-slider');
+    if (banner) {
+        banner.style.transform = `translateY(${scrolled * 0.5}px)`;
+    }
+});
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animated');
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.feature-card, .product-card, .team-card, .process-step, .mv-card, .quality-item, .project-card, .testimonial-card, .cert-item, .faq-item');
+// Lazy Loading for Images
+document.addEventListener('DOMContentLoaded', function() {
+    const lazyImages = document.querySelectorAll('img[data-src]');
     
-    animatedElements.forEach(el => {
-        el.classList.add('animate-on-scroll');
-        observer.observe(el);
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
     });
+    
+    lazyImages.forEach(img => imageObserver.observe(img));
 });
 
-// Counter animation for statistics
-function animateCounter(element, target, duration = 2000) {
-    let start = 0;
-    const increment = target / (duration / 16);
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-            element.textContent = target + '+';
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(start) + '+';
+// Add to cart functionality (for future e-commerce)
+class CartManager {
+    constructor() {
+        this.cart = JSON.parse(localStorage.getItem('cart')) || [];
+        this.updateCartCount();
+    }
+    
+    addToCart(product) {
+        this.cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(this.cart));
+        this.updateCartCount();
+        this.showAddToCartMessage();
+    }
+    
+    updateCartCount() {
+        const cartCount = document.querySelector('.cart-count');
+        if (cartCount) {
+            cartCount.textContent = this.cart.length;
         }
-    }, 16);
+    }
+    
+    showAddToCartMessage() {
+        // Create toast notification
+        const toast = document.createElement('div');
+        toast.className = 'toast-message';
+        toast.innerHTML = `
+            <i class="fas fa-check-circle"></i>
+            <span>Product added to cart successfully!</span>
+        `;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
+    }
 }
 
-// Initialize counters when they come into view
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const target = parseInt(entry.target.getAttribute('data-target'));
-            animateCounter(entry.target, target);
-            counterObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
+// Initialize cart manager
+const cartManager = new CartManager();
 
-// Observe counter elements
-document.querySelectorAll('.stat-item h3').forEach(counter => {
-    counterObserver.observe(counter);
-});
-
-// Add hover effects to cards
-document.querySelectorAll('.feature-card, .product-card, .service-card, .project-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
-    });
+// Keyboard Navigation
+document.addEventListener('keydown', function(e) {
+    // ESC key closes mobile menu
+    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
     
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
+    // Tab key navigation enhancement
+    if (e.key === 'Tab') {
+        document.documentElement.classList.add('keyboard-navigation');
+    }
+});
+
+// Remove keyboard navigation class on mouse click
+document.addEventListener('mousedown', function() {
+    document.documentElement.classList.remove('keyboard-navigation');
+});
+
+// Performance optimization: Debounce scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Optimized scroll handler
+const optimizedScrollHandler = debounce(function() {
+    // Scroll-based animations and effects
+}, 10);
+
+window.addEventListener('scroll', optimizedScrollHandler);
+
+// Service Worker Registration (for PWA capabilities)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function(err) {
+            console.log('ServiceWorker registration failed: ', err);
+        });
     });
-});
+}
 
-// Sticky header on scroll
-window.addEventListener('scroll', () => {
-    const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.background = 'rgba(255, 255, 255, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
-    } else {
-        header.style.background = 'var(--white)';
-        header.style.backdropFilter = 'none';
-    }
-});
-
-// Lazy loading for images
-document.addEventListener('DOMContentLoaded', function() {
-    const lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'));
-    
-    if ('IntersectionObserver' in window) {
-        const lazyImageObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    const lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove('lazy');
-                    lazyImageObserver.unobserve(lazyImage);
-                }
-            });
-        });
-        
-        lazyImages.forEach(function(lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-        });
-    }
-});
-
-// Add current year to footer
-document.addEventListener('DOMContentLoaded', function() {
-    const yearElement = document.querySelector('.footer-bottom p');
-    if (yearElement) {
-        const currentYear = new Date().getFullYear();
-        yearElement.innerHTML = yearElement.innerHTML.replace('2024', currentYear);
-    }
-});
-
-// Initialize when DOM is fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Add any additional initialization code here
-});
+// Export for module usage (if needed)
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        BannerSlider,
+        CounterAnimation,
+        ScrollAnimations,
+        CartManager
+    };
+}
