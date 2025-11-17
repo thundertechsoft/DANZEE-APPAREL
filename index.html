@@ -3,31 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="DZA DANZEE APPAREL - Premium Garment Manufacturers in Pakistan. International quality standards with sustainable practices.">
-    <title>DZA DANZEE APPAREL - Premium Garment Manufacturers</title>
+    <title>DZA DANZEE APPAREL - Premium Garment Manufacturers | Global Clothing Solutions</title>
+    <meta name="description" content="DZA DANZEE APPAREL - International garment manufacturers offering premium denim, casual wear & formal clothing. Quality apparel manufacturing since 2024.">
+    <meta name="keywords" content="garment manufacturers, clothing production, denim manufacturers, apparel factory, fashion manufacturing">
+    <meta name="author" content="DZA DANZEE APPAREL">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="canonical" href="https://rijafashions.com/">
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="dza-logo-animated">
+                <div class="dza-text">DZA</div>
+            </div>
+            <p>Loading Premium Fashion Solutions...</p>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="logo">
-                    <div class="logo-icon">DZA</div>
-                    <div class="logo-text">
-                        <h2>DZA DANZEE</h2>
-                        <p>APPAREL</p>
+                    <div class="logo-main">
+                        <div class="dza-badge">DZA</div>
+                        <h2>DANZEE APPAREL</h2>
                     </div>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="products.html">Products</a></li>
-                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-primary btn-small">Get Quote</a>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -37,182 +52,224 @@
         </nav>
     </header>
 
-    <!-- Hero Section with Slideshow -->
-    <section class="hero-slideshow">
-        <div class="slideshow-container">
+    <!-- Animated Banner Slider -->
+    <section class="banner-slider">
+        <div class="slides-container">
             <div class="slide active">
                 <div class="slide-content">
-                    <h1>Premium Garment Manufacturing</h1>
-                    <p>International quality standards with Pakistan's finest craftsmanship</p>
-                    <div class="hero-buttons">
-                        <a href="products.html" class="btn btn-primary">Explore Products</a>
-                        <a href="contact.html" class="btn btn-secondary">Get Quote</a>
-                    </div>
+                    <h1>Global Garment Manufacturing Excellence</h1>
+                    <p>Premium Quality Apparel for International Markets</p>
+                    <a href="products.html" class="btn btn-large">Explore Collections</a>
                 </div>
+                <div class="slide-image corporate-1"></div>
             </div>
             <div class="slide">
                 <div class="slide-content">
-                    <h1>Sustainable Fashion Solutions</h1>
-                    <p>Eco-friendly manufacturing with global reach</p>
-                    <div class="hero-buttons">
-                        <a href="about.html" class="btn btn-primary">Our Story</a>
-                        <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-                    </div>
+                    <h1>Innovative Fashion Solutions</h1>
+                    <p>Cutting-edge Technology Meets Traditional Craftsmanship</p>
+                    <a href="services.html" class="btn btn-large">Our Services</a>
                 </div>
+                <div class="slide-image corporate-2"></div>
             </div>
             <div class="slide">
                 <div class="slide-content">
-                    <h1>Innovative Textile Excellence</h1>
-                    <p>Cutting-edge technology meets traditional expertise</p>
-                    <div class="hero-buttons">
-                        <a href="projects.html" class="btn btn-primary">Our Projects</a>
-                        <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
-                    </div>
+                    <h1>Sustainable Manufacturing</h1>
+                    <p>Eco-friendly Practices for a Better Tomorrow</p>
+                    <a href="about.html" class="btn btn-large">Learn More</a>
                 </div>
+                <div class="slide-image corporate-3"></div>
             </div>
         </div>
-        <div class="slideshow-indicators">
-            <span class="indicator active"></span>
-            <span class="indicator"></span>
-            <span class="indicator"></span>
+        <div class="slider-controls">
+            <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Animated Stats Section -->
     <section class="stats-section">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-item">
-                    <h3 data-target="150">0</h3>
-                    <p>Global Clients</p>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="counter" data-target="25">0</h3>
+                        <p>Countries Served</p>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h3 data-target="25">0</h3>
-                    <p>Years Experience</p>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="counter" data-target="500">0</h3>
+                        <p>Happy Clients</p>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h3 data-target="5000">0</h3>
-                    <p>Products Monthly</p>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="counter" data-target="10000">0</h3>
+                        <p>Products Delivered</p>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <h3 data-target="15">0</h3>
-                    <p>Countries Served</p>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="counter" data-target="15">0</h3>
+                        <p>Years Experience</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Enhanced Features Section -->
     <section class="features">
         <div class="container">
             <div class="section-header">
                 <h2>Why Choose DZA DANZEE APPAREL?</h2>
-                <p>Excellence in every stitch, quality in every garment</p>
+                <p>Leading the fashion industry with unmatched quality and innovation</p>
             </div>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card animated-card">
                     <div class="feature-icon">
                         <i class="fas fa-award"></i>
                     </div>
-                    <h3>Premium Quality</h3>
-                    <p>We never compromise on quality standards. Every product meets international quality benchmarks with rigorous testing.</p>
+                    <h3>International Quality Standards</h3>
+                    <p>We adhere to global quality benchmarks with ISO certified manufacturing processes and rigorous quality control.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animated-card">
                     <div class="feature-icon">
-                        <i class="fas fa-globe-asia"></i>
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Global Reach</h3>
-                    <p>Serving clients across Europe, America, Middle East and Asia with reliable shipping and delivery networks.</p>
+                    <h3>Fast Global Delivery</h3>
+                    <p>Efficient logistics network ensuring timely delivery across Europe, America, Middle East, and Asia.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animated-card">
                     <div class="feature-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
-                    <h3>Sustainable Practices</h3>
-                    <p>Eco-friendly manufacturing processes, sustainable material sourcing and ethical production standards.</p>
+                    <h3>Sustainable Manufacturing</h3>
+                    <p>Eco-friendly processes, sustainable material sourcing, and ethical manufacturing practices.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card animated-card">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-users-cog"></i>
                     </div>
-                    <h3>Fast Delivery</h3>
-                    <p>Quick turnaround times without compromising on quality and precision. On-time delivery guaranteed.</p>
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored manufacturing solutions to meet your specific requirements and brand identity.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Preview -->
-    <section class="products-preview">
+    <!-- Animated Products Showcase -->
+    <section class="products-showcase">
         <div class="container">
             <div class="section-header">
-                <h2>Our Product Range</h2>
-                <p>Diverse collection for every fashion need</p>
+                <h2>Our Premium Collections</h2>
+                <p>Discover our extensive range of quality apparel</p>
             </div>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="image-overlay">
-                            <i class="fas fa-tshirt"></i>
+            <div class="showcase-grid">
+                <div class="showcase-item">
+                    <div class="showcase-image denim-showcase">
+                        <div class="showcase-overlay">
+                            <h3>Denim Collection</h3>
+                            <a href="products.html" class="btn btn-outline">View Collection</a>
                         </div>
                     </div>
-                    <h3>Denim Collection</h3>
-                    <p>Premium quality denim fabrics and finished products with international standards</p>
-                    <a href="products.html" class="product-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="image-overlay">
-                            <i class="fas fa-tshirt"></i>
+                <div class="showcase-item">
+                    <div class="showcase-image casual-showcase">
+                        <div class="showcase-overlay">
+                            <h3>Casual Wear</h3>
+                            <a href="products.html" class="btn btn-outline">View Collection</a>
                         </div>
                     </div>
-                    <h3>Casual Wear</h3>
-                    <p>Comfortable and stylish casual clothing line for everyday fashion</p>
-                    <a href="products.html" class="product-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="image-overlay">
-                            <i class="fas fa-tshirt"></i>
+                <div class="showcase-item">
+                    <div class="showcase-image formal-showcase">
+                        <div class="showcase-overlay">
+                            <h3>Formal Wear</h3>
+                            <a href="products.html" class="btn btn-outline">View Collection</a>
                         </div>
                     </div>
-                    <h3>Formal Wear</h3>
-                    <p>Elegant formal attire for professional settings and special occasions</p>
-                    <a href="products.html" class="product-link">Explore <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Corporate Clients Section -->
+    <section class="clients-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Global Brands</h2>
+                <p>Partnering with leading fashion brands worldwide</p>
+            </div>
+            <div class="clients-slider">
+                <div class="client-logo">
+                    <div class="logo-placeholder">Global Fashion Inc.</div>
+                </div>
+                <div class="client-logo">
+                    <div class="logo-placeholder">Style Corporation</div>
+                </div>
+                <div class="client-logo">
+                    <div class="logo-placeholder">Urban Trends</div>
+                </div>
+                <div class="client-logo">
+                    <div class="logo-placeholder">Elite Apparel</div>
+                </div>
+                <div class="client-logo">
+                    <div class="logo-placeholder">Modern Wear</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced CTA Section -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Start Your Fashion Journey?</h2>
-                <p>Contact us today for premium garment manufacturing solutions tailored to your needs</p>
-                <a href="contact.html" class="btn btn-large">Get Started Now</a>
+                <h2>Ready to Elevate Your Fashion Business?</h2>
+                <p>Join hundreds of satisfied clients worldwide who trust DZA DANZEE APPAREL for premium garment manufacturing</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-large btn-primary">Start Your Project</a>
+                    <a href="tel:+923001234567" class="btn btn-large btn-secondary">
+                        <i class="fas fa-phone"></i> Call Now
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Enhanced Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <div class="logo-icon">DZA</div>
-                        <div class="logo-text">
-                            <h3>DZA DANZEE</h3>
-                            <p>APPAREL</p>
-                        </div>
+                        <div class="dza-badge">DZA</div>
+                        <h3>DANZEE APPAREL</h3>
                     </div>
-                    <p>Premium garment manufacturers delivering excellence with Pakistan's finest craftsmanship since 1999.</p>
+                    <p>International garment manufacturers delivering excellence and innovation in fashion since 2024.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
@@ -221,31 +278,53 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="products.html">Products</a></li>
-                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Apparel City, Lahore, Pakistan</p>
-                    <p><i class="fas fa-phone"></i> +92 42 1234567</p>
-                    <p><i class="fas fa-mobile-alt"></i> +92 300 1234567</p>
-                    <p><i class="fas fa-envelope"></i> info@dzadanzee.com</p>
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="products.html">Denim Collection</a></li>
+                        <li><a href="products.html">Casual Wear</a></li>
+                        <li><a href="products.html">Formal Wear</a></li>
+                        <li><a href="products.html">Custom Orders</a></li>
+                        <li><a href="products.html">Bulk Manufacturing</a></li>
+                    </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Certifications</h4>
-                    <div class="certifications">
-                        <div class="cert-badge">ISO 9001</div>
-                        <div class="cert-badge">OEKO-TEX</div>
-                        <div class="cert-badge">BSCI</div>
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Fashion Street, Apparel City, Pakistan</p>
+                        <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                        <p><i class="fas fa-envelope"></i> info@dzadanzee.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00-18:00</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 DZA DANZEE APPAREL. All rights reserved. | Proudly Made in Pakistan</p>
+                <p>&copy; 2024 DZA DANZEE APPAREL. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
             </div>
         </div>
     </footer>
+
+    <!-- Quick Contact Floating Button -->
+    <div class="floating-contact">
+        <button class="contact-btn">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div class="contact-options">
+            <a href="https://wa.me/923001234567" class="whatsapp" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="tel:+923001234567" class="phone" aria-label="Phone">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="mailto:info@dzadanzee.com" class="email" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
